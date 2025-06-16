@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    display: flex;
+    background: #0078d7;
+    color: white;
+    gap: 2vw;
+    height: 4vh;
+    align-items: center;
+    margin: 1vw;
+
+    
+}
+.home{
+    margin: 0 0 0 1vh;
+}
+.home:hover{
+    transform: scale(1.2);
+}
+.about:hover{
+    transform: scale(1.2);
+}
+.contact:hover{
+    transform: scale(1.2);
+}
+
+
+.profile {
+    /* background-image: url("gintoki.jpg"); */
+    background-image: url("odg1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 6vh;
+    width: 3vw;
+    border-radius: 1132424428vw;
+    position: relative;
+    margin: 0 1vw 0 0;
+    cursor: pointer; /* Indicates that the div is clickable */
+    overflow: hidden; /* Ensures the anchor tag covers the entire div */
+    transform: scale(1); /* Initial scale for smooth hover effect */
+    transition: transform 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.profile:hover {
+    transform: scale(1.2);
+}
+
+/* Ensure the anchor tag covers the entire div */
+.profile a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color to ensure no text color issues */
+    z-index: 1; /* Ensure it is above the background image */
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background: #0078d7;
+    align-items: center;
+}
+/* @media screen and (max-width: >=768px)
+{
+.profile{
+    height: 6vh;
+    width: 6vw;
+    border-radius: 1132424428vw;
+}
+} */
+    
+/* Desktop: 1920×1080, 1366×768, 1280×1024, 1024×768 */
+@media (min-width: 1024px) {
+    .profile {
+      height: 6vh; /* Adjust as needed */
+      width: 3vw; /* Adjust as needed */
+      border-radius: 20vh;
+    }
+  }
+  
+  /* Mobile: 375×667, 414×736, 360×800, 390×844 */
+  @media (max-width: 480px) {
+    .profile {
+      height: 6vw; /* Adjust as needed */
+      width: 6vw; /* Adjust as needed */
+      border-radius: 50%; /* Makes it perfectly round */
+    }
+  }
+  
+  /* Tablet: 768×1024, 1024×768, 601×962 */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .profile {
+      height: 6vh; /* Adjust as needed */
+      width: 3vw; /* Adjust as needed */
+      border-radius: 20vh;
+    }
+  }
+
+  .home a{
+    text-decoration: none;
+    color: inherit;
+}
+.about a{
+    text-decoration: none;
+    color: inherit;
+}
+.contact a{
+    text-decoration: none;
+    color: inherit;
+}

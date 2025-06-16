@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+footer{
+    background:black;
+    height: auto;
+}
+.aboutus h1{
+    color: darkred;
+    
+    
+}
+
+.aboutus p{
+    color: white;
+    text-transform: capitalize;
+}
+.aboutus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+}
+.contactus h1{
+    color: darkred;
+}
+.contactus a{
+    text-decoration: none;
+    color: white;
+    margin-left: -2vw;
+}
+.contactus a:hover{
+    text-decoration: underline;
+}
+.contactus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+}
+.myadress h1{
+    color: darkred;
+
+}
+.myadress p{
+    color: white;
+    text-transform: capitalize;
+}
+.myadress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+
+}
+.copyright{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}

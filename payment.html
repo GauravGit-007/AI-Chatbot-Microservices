@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OddJobsGaurav Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #131313; /* Pitch Black */
+      color: #fff; /* Default text color */
+      transition: background 2s, color 2s; /* Smooth color transition */
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background 2s;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header img {
+      max-width: 100px;
+      border-radius: 50%;
+    }
+    .header h1 {
+      margin: 10px 0;
+      font-size: 26px;
+      color: #b71c1c; /* Dark Red */
+      transition: color 2s;
+    }
+    .header p {
+      font-size: 16px;
+      color: #fff;
+      transition: color 2s;
+    }
+    .quotes {
+      text-align: center;
+      font-style: italic;
+      margin: 20px 0;
+      font-size: 18px;
+      color: #b71c1c; /* Dark Red */
+      transition: color 2s, opacity 1s, transform 1s;
+    }
+    .btn-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .btn {
+      display: inline-block;
+      background: #b71c1c; /* Dark Red */
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, background 2s ease;
+    }
+    .btn:hover {
+      background: #7f0000; /* Darker Red */
+      transform: translateY(-3px);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #fff;
+      transition: color 2s;
+    }
+    footer p {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="odg1.jpg" alt="OddJobsGaurav Logo">
+      <h1>Confirm Your Order</h1>
+      <p>Pay ₹799 to proceed</p>
+    </div>
+
+    <div class="quotes" id="quote-box">
+      <p>“If you’re going to work, give it all you’ve got!” – OddJobs, inspired by Gintama</p>
+    </div>
+
+    <div class="btn-container">
+      <button class="btn" id="rzp-button">Pay ₹799</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 OddJobsGaurav. Your satisfaction is our samurai way.</p>
+  </footer>
+
+  <script>
+    // Initialize EmailJS
+    (function () {
+      emailjs.init("BlvI5daBQiA39-pKM"); // Your Public Key
+    })();
+
+    // Razorpay Options
+    const options = {
+      key: "rzp_test_KI0WHP4BhEN8NJ", // Your Razorpay Test Key ID
+      amount: 79900, // Amount in paise (₹799)
+      currency: "INR",
+      name: "OddJobsGaurav",
+      description: "Payment for Service",
+      image: "https://your-logo-url.com/logo.png",
+      handler: function (response) {
+        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        sendEmail(response.razorpay_payment_id); // Send email
+        redirectToHome(); // Redirect to index.html
+      },
+      prefill: {
+        name: "Customer Name",
+        email: "customer@example.com",
+        contact: "9315223704"
+      },
+      theme: {
+        color: "#b71c1c"
+      }
+    };
+
+    document.getElementById('rzp-button').onclick = function (e) {
+      const rzp1 = new Razorpay(options);
+      rzp1.open();
+      e.preventDefault();
+    };
+
+    // Send email function
+    function sendEmail(paymentID) {
+      const serviceID = "service_lud335h"; // Your Service ID
+      const templateID = "template_cyp6evp"; // Your Template ID
+
+      // Send email via EmailJS
+      emailjs
+        .send(serviceID, templateID, {
+          customer_name: "Customer Name", // Replace with dynamic name if needed
+          customer_email: "customer@example.com", // Replace with dynamic email
+          payment_id: paymentID,
+          service_name: "OddJobsGaurav Service"
+        })
+        .then(
+          function (response) {
+            console.log("Email sent successfully:", response);
+          },
+          function (error) {
+            console.error("Error sending email:", error);
+          }
+        );
+    }
+
+    // Redirect to index.html after successful payment
+    function redirectToHome() {
+      setTimeout(() => {
+        window.location.href = "index.html"; // Replace with actual index.html path
+      }, 2000); // 2-second delay
+    }
+
+    // Quotes Array
+    const quotes = [
+      "“If you’re going to work, give it all you’ve got!” – OddJobs, inspired by Gintama",
+      "“Odd jobs may be small, but our impact is big.”",
+      "“The samurai way: Honor in every task, no matter how small.”",
+      "“At OddJobsGaurav, we turn your needs into accomplishments.”",
+      "“Why do everything yourself? Odd jobs are what we do best!”"
+    ];
+
+    // Dynamic Quotes Logic
+    let currentQuoteIndex = 0;
+    const quoteBox = document.getElementById("quote-box");
+
+    function changeQuote() {
+      currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+      quoteBox.style.opacity = 0;
+      setTimeout(() => {
+        quoteBox.innerHTML = `<p>${quotes[currentQuoteIndex]}</p>`;
+        quoteBox.style.opacity = 1;
+      }, 1000);
+    }
+
+    setInterval(changeQuote, 5000);
+
+    // Color Themes Array
+    const themes = [
+      // { background: "#000", text: "#fff", accent: "#b71c1c" }, // Black & Dark Red
+      { background: "#002b36", text: "#93a1a1", accent: "#268bd2" }, // Solarized
+      { background: "#1e1e2f", text: "#e0e0e0", accent: "#d23669" }, // Dark Pink
+      { background: "#282c34", text: "#abb2bf", accent: "#61dafb" }, // Dark & Blue
+    ];
+
+    let currentThemeIndex = 0;
+
+    function changeTheme() {
+      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+      const theme = themes[currentThemeIndex];
+      document.body.style.background = theme.background;
+      document.body.style.color = theme.text;
+      document.querySelector(".container").style.background = theme.background;
+      document.querySelector(".header h1").style.color = theme.accent;
+      document.querySelector(".quotes").style.color = theme.accent;
+      document.querySelector(".btn").style.background = theme.accent;
+      document.querySelector("footer").style.color = theme.text;
+    }
+
+    setInterval(changeTheme, 8000); // Change theme every 8 seconds
+  </script>
+</body>
+</html>

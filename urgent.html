@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="slider_button.css">
+    
+
+    <link rel="stylesheet" href="urgent.css">
+</head>
+
+<body>
+    <div class="headerbody">
+        <div class="slide-button">
+            <div class="slider"></div>
+            <span class="normal">Normal Mode</span>
+            <span class="urgent">Urgent Mode</span><audio id="background-music" src="gintama.mp3" loop></audio>
+
+
+        </div>
+        <div class="body">
+            <p> I am Just a Phone-call away</p>
+            <p>telephone number: <span id="phonenumber">+91-9315223704</span></p>
+            <button onclick="callNumber()">Call Now</button>
+
+        </div>
+
+    </div>
+
+
+    </footer>
+    <script src="textdisplay.js"></script>
+    <script src="displayscreen.js"></script>
+    <script src="slider_button.js"></script>
+    
+
+    <script>
+        function callNumber() {
+            window.location.href = 'tel:+919315223704';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Submission Form</title>
+    <link rel="stylesheet" href="form.css"> <!-- Link to external CSS file -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+    <script src="form.js" defer></script> <!-- Link to external JS file -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Submit Your Details</h2>
+        <form onsubmit="sendEmail(event)">
+            <div class="input-group">
+                <input type="text" id="user-name" placeholder="Enter your name" required>
+                <label for="user-name">Your Name:</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="recipient-email" placeholder="Enter your email" required>
+                <label for="recipient-email">Your Email:</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" id="user-phone" placeholder="Enter your phone number" required>
+                <label for="user-phone">Your Phone Number:</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="user-request" placeholder="Define your request" required>
+                <label for="user-request">Define Your Request:</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="user-address" placeholder="Enter your address" required>
+                <label for="user-address">Your Address:</label>
+            </div>
+
+            <button class="submit-btn" type="submit">Authorize</button>
+        </form>
+    </div>
+</body>
+</html>

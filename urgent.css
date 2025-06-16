@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    background: #670A0A;
+    
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    font-size: 4vh;
+    font-weight: bolder;
+    text-transform: capitalize;
+    flex-wrap: wrap;
+   
+}
+.headerbody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    flex-wrap: wrap;
+}
+.body button:hover{
+    transform: scale(1.3);
+    background: #000;
+    color: white;
+    cursor: pointer;
+}
+.body button{
+    background: #000;
+    color: white;
+    height: 6vh;
+    width: 16vw;
+    border-radius: 2vw;
+}

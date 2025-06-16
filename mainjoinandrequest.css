@@ -1,0 +1,124 @@
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.join1 {
+    text-transform: capitalize;
+    margin: 0 0 0 3vh;
+    font-weight: bolder;
+}
+
+.request1 {
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+.request, .join {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 10vw;
+    border-radius: 3vw;
+    background: darkred;
+    color: white;
+}
+
+.mainjoinandrequestbuttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    height: 46vh;
+    width: auto;
+    margin: 2vh;
+    background: lightblue;
+    border-radius: 2vw;
+}
+
+.join:hover, .request:hover {
+    transform: scale(1.2);
+    color: black;
+}
+
+.join1 a, .request1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.join a:hover, .request a:hover {
+    transform: scale(1.2);
+    color: black;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .request, .join {
+        height: 8vh;
+        width: 8vw;
+    }
+
+    .mainjoinandrequestbuttons {
+        height: 40vh;
+        gap: 1.5vh;
+    }
+}
+
+@media (max-width: 992px) {
+    .request, .join {
+        height: 7vh;
+        width: 7vw;
+        border-radius: 2vw;
+    }
+
+    .mainjoinandrequestbuttons {
+        height: 35vh;
+        gap: 1.5vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .request, .join {
+        height: 6vh;
+        width: 20vw;
+        border-radius: 10vw;
+    }
+
+    .mainjoinandrequestbuttons {
+        height: auto;
+        width: 90%;
+        margin: 2vh auto;
+        gap: 2vh;
+    }
+
+    .join1, .request1 {
+        text-align: center;
+        margin: 1vh 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .request, .join {
+        height: 5vh;
+        width: 40vw;
+        border-radius: 10vw;
+    }
+
+    .mainjoinandrequestbuttons {
+        height: auto;
+        width: 90%;
+        margin: 2vh auto;
+        gap: 2vh;
+    }
+
+    .join1, .request1 {
+        text-align: center;
+        margin: 1vh 0;
+    }
+}
